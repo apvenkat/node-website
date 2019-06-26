@@ -1,0 +1,28 @@
+<html>
+  <head><title>Test</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+  <body>
+    The Temperature is <%= data%>
+    <br>
+    <div id="button">
+    <button type="button">Get Temperature</button>
+    </div>
+  </body>
+  <script>
+  $( "#button" ).click(function() {
+    var settings= {
+          headers: {          
+          Accept: "application/json",         
+          "Content-Type": "application/json"   
+          },     
+          url: 'http://devices.webofthings.io/pi/sensors/temperature',
+          type: 'GET'
+          
+        }
+    $.ajax(settings) .done(function (response) {
+  console.log(response);
+});//ajax
+});
+  </script>
+</html>
